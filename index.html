@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re-Render | Content That Performs</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts: Inter & Space Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Lenis for smooth scrolling -->
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.9/dist/lenis.css">
+    <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+</head>
+<body>
+    <!-- Initial Reveal Door Animation -->
+    <div id="door-preloader" class="door-preloader">
+        <div class="door-panel door-left"></div>
+        <div class="door-panel door-right"></div>
+    </div>
+
+    <!-- ColorBends WebGL Shader Canvas Background -->
+    <canvas id="colorbends-canvas"></canvas>
+    <div class="hero-vignette"></div>
+    <script src="colorbends.js"></script>
+
+
+    <!-- Sleek Navigation Menu -->
+    <nav class="sleek-nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">RE-RENDER</a>
+            
+            <ul class="nav-links">
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link">Services <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="nav-dropdown">
+                        <a href="#services" class="dropdown-item">
+                            <div class="dropdown-icon"><i class="fa-solid fa-video"></i></div>
+                            <div class="dropdown-text">
+                                <h4>Video Editing</h4>
+                                <p>High-retention editing for YouTube.</p>
+                            </div>
+                        </a>
+                        <a href="#services" class="dropdown-item">
+                            <div class="dropdown-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                            <div class="dropdown-text">
+                                <h4>Motion Graphics</h4>
+                                <p>Custom animations and visual effects.</p>
+                            </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#services" class="dropdown-item">
+                            <div class="dropdown-icon"><i class="fa-solid fa-image"></i></div>
+                            <div class="dropdown-text">
+                                <h4>Thumbnails</h4>
+                                <p>High CTR custom designs and hooks.</p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="work.html" class="nav-link">Work</a></li>
+                <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="#contact" class="nav-btn">Start Project</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="hero-section">
+        <div class="hero-content">
+            <h1 class="headline">
+                WE MAKE CONTENT <br>
+                <span class="highlight">THAT <span id="hero-typewriter">PERFORMS.</span><span class="cursor-blink">|</span></span>
+            </h1>
+            <p class="subtitle">
+                Video Editing. Thumbnails. Motion Graphics. For creators<br>
+                who refuse to be average.
+            </p>
+            <div class="cta-group">
+                <button class="btn-primary" onclick="window.location.href='work.html'">VIEW OUR WORK <i class="fa-solid fa-arrow-right"></i></button>
+                <button class="btn-secondary">START A PROJECT</button>
+            </div>
+            <div class="stats-text">
+                50+ clients served &nbsp;&bull;&nbsp; 500K+ views generated &nbsp;&bull;&nbsp; Trusted by creators worldwide
+            </div>
+        </div>
+        
+    </main>
+
+    <!-- Section 3: Portfolio Selection -->
+    <section class="portfolio-section">
+        <div class="portfolio-header">
+            <div class="portfolio-meta">
+                <span class="meta-number">01</span> &mdash; PORTFOLIO_SELECTION.2
+                <div class="meta-line"></div>
+            </div>
+            <h2 class="portfolio-title">LIVING <span class="portfolio-italic">archive</span></h2>
+        </div>
+
+        <div class="portfolio-grid">
+            <!-- Left Column -->
+            <div class="grid-col col-left">
+                <div class="portfolio-card card-wide">
+                    <video muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                        <source src="https://videos.pexels.com/video-files/3163534/3163534-uhd_2560_1440_30fps.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <div class="portfolio-card">
+                    <video muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1594909122845-11baa439b7bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                        <source src="https://videos.pexels.com/video-files/4763824/4763824-hd_1080_1920_30fps.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                </div>
+            </div>
+            
+            <!-- Middle Column -->
+            <div class="grid-col col-middle">
+                <div class="portfolio-card">
+                    <video muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                        <source src="https://videos.pexels.com/video-files/5586616/5586616-hd_1080_1920_25fps.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <div class="portfolio-card">
+                    <video muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1531297121430-845622df1440?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                        <source src="https://videos.pexels.com/video-files/3209828/3209828-uhd_2560_1440_25fps.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="grid-col col-right">
+                <div class="portfolio-card">
+                    <video muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                        <source src="https://videos.pexels.com/video-files/6981411/6981411-hd_1080_1920_25fps.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <div class="portfolio-card">
+                    <video muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1607513746994-51f730a44832?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                        <source src="https://videos.pexels.com/video-files/8086687/8086687-hd_1080_1920_25fps.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                </div>
+            </div>
+        </div>
+        
+        <a href="work.html" class="btn-archive">VIEW FULL ARCHIVE</a>
+    </section>
+
+    <!-- Section 4: Proven ROI Pipeline -->
+    <section class="pipeline-section">
+        <div class="pipeline-header">
+            <span class="pipeline-subtitle">PROVEN ROI PIPELINE</span>
+            <h2 class="pipeline-title">
+                HOW WE DRIVE <br>
+                <span class="title-highlight">RESULTS</span>
+            </h2>
+        </div>
+
+        <div class="pipeline-steps">
+            <!-- Connecting horizontal line -->
+            <div class="pipeline-line"></div>
+
+            <div class="steps-grid">
+                <!-- Step 01 -->
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <div class="step-badge">+150% CLARITY</div>
+                    <h3 class="step-title">DISCOVERY</h3>
+                    <p class="step-desc">Aligning on vision, KPIs, and deliverables.</p>
+                </div>
+
+                <!-- Step 02 -->
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <div class="step-badge">UNLIMITED ITERATIONS</div>
+                    <h3 class="step-title">IDEATION & DESIGN</h3>
+                    <p class="step-desc">Crafting the visual identity and structural flow.</p>
+                </div>
+
+                <!-- Step 03 -->
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <div class="step-badge">0.1S LOAD TIMES</div>
+                    <h3 class="step-title">DEVELOPMENT / RENDER</h3>
+                    <p class="step-desc">Bringing the vision to life with pixel perfection.</p>
+                </div>
+
+                <!-- Step 04 -->
+                <div class="step-card">
+                    <div class="step-number">04</div>
+                    <div class="step-badge">5X ROI AVERAGE</div>
+                    <h3 class="step-title">DELIVERY & SCALING</h3>
+                    <p class="step-desc">Handing over the keys, ready for client acquisition.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Social Proof -->
+    <section class="social-proof-section" id="proof">
+        <!-- Right Side Vertical Navigation Tabs (Stuck to this Section) -->
+        <div class="right-side-tabs">
+            <a href="#" class="side-tab active">START</a>
+            <a href="#proof" class="side-tab">PROOF</a>
+            <a href="#" class="side-tab">PROCESS</a>
+            <a href="#" class="side-tab">REVIEWS</a>
+            <a href="#" class="side-tab">FAQ</a>
+            <a href="#" class="side-tab">CONTACT</a>
+        </div>
+
+        <div class="social-proof-header">
+            <div class="portfolio-meta">
+                <span class="meta-number">05</span> &mdash; SOCIAL_PROOF
+                <div class="meta-line"></div>
+            </div>
+            <h2 class="social-proof-title">
+                DON'T TAKE <br>
+                <span class="title-highlight-red">OUR WORD FOR IT.</span>
+            </h2>
+            <p class="social-proof-desc">
+                Every client we've worked with has come back for more. Here's why<br>
+                they can't stop recommending us.
+            </p>
+        </div>
+
+        <!-- Testimonials Infinite Marquee Track (Moving Right to Left) -->
+        <div class="testimonials-marquee-wrapper">
+            <div class="testimonials-track">
+                <!-- Card 1 -->
+                <div class="testimonial-card">
+                    <div class="card-top">
+                        <div class="stars">★★★★★</div>
+                        <span class="client-badge"><i class="fa-solid fa-check"></i> VERIFIED CLIENT</span>
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                    </div>
+                    <p class="review-text">"Working with RE-RENDER increased our channel views by 400% in 30 days. Their editing style is unreal."</p>
+                    <div class="client-profile">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Alex Rivera" class="avatar">
+                        <div class="client-info">
+                            <span class="client-name">ALEX RIVERA</span>
+                            <span class="client-role">Creative Director @ VOLT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="testimonial-card">
+                    <div class="card-top">
+                        <div class="stars">★★★★★</div>
+                        <span class="client-badge"><i class="fa-solid fa-check"></i> VERIFIED CLIENT</span>
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                    </div>
+                    <p class="review-text">"Finally an agency that understands the 'lo-fi' luxury vibe. Their custom transitions saved me weeks of work."</p>
+                    <div class="client-profile">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Elena Rossi" class="avatar">
+                        <div class="client-info">
+                            <span class="client-name">ELENA ROSSI</span>
+                            <span class="client-role">Independent Filmmaker</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="testimonial-card">
+                    <div class="card-top">
+                        <div class="stars">★★★★★</div>
+                        <span class="client-badge"><i class="fa-solid fa-check"></i> VERIFIED CLIENT</span>
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                    </div>
+                    <p class="review-text">"The brutalist aesthetic they brought to our brand was exactly what we needed to stand out in a crowded market."</p>
+                    <div class="client-profile">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Sarah Chen" class="avatar">
+                        <div class="client-info">
+                            <span class="client-name">SARAH CHEN</span>
+                            <span class="client-role">Founder, Studio Bloom</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="testimonial-card">
+                    <div class="card-top">
+                        <div class="stars">★★★★★</div>
+                        <span class="client-badge"><i class="fa-solid fa-check"></i> VERIFIED CLIENT</span>
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                    </div>
+                    <p class="review-text">"Professional, fast, and technically superior. The assets from RE-RENDER are now a staple in my workflow."</p>
+                    <div class="client-profile">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Marcus Vogue" class="avatar">
+                        <div class="client-info">
+                            <span class="client-name">MARCUS VOGUE</span>
+                            <span class="client-role">Lead Editor, NEXUS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duplicate Set for Seamless Loop -->
+                <div class="testimonial-card">
+                    <div class="card-top">
+                        <div class="stars">★★★★★</div>
+                        <span class="client-badge"><i class="fa-solid fa-check"></i> VERIFIED CLIENT</span>
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                    </div>
+                    <p class="review-text">"Working with RE-RENDER increased our channel views by 400% in 30 days. Their editing style is unreal."</p>
+                    <div class="client-profile">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Alex Rivera" class="avatar">
+                        <div class="client-info">
+                            <span class="client-name">ALEX RIVERA</span>
+                            <span class="client-role">Creative Director @ VOLT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="card-top">
+                        <div class="stars">★★★★★</div>
+                        <span class="client-badge"><i class="fa-solid fa-check"></i> VERIFIED CLIENT</span>
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                    </div>
+                    <p class="review-text">"Finally an agency that understands the 'lo-fi' luxury vibe. Their custom transitions saved me weeks of work."</p>
+                    <div class="client-profile">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Elena Rossi" class="avatar">
+                        <div class="client-info">
+                            <span class="client-name">ELENA ROSSI</span>
+                            <span class="client-role">Independent Filmmaker</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="card-top">
+                        <div class="stars">★★★★★</div>
+                        <span class="client-badge"><i class="fa-solid fa-check"></i> VERIFIED CLIENT</span>
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                    </div>
+                    <p class="review-text">"The brutalist aesthetic they brought to our brand was exactly what we needed to stand out in a crowded market."</p>
+                    <div class="client-profile">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Sarah Chen" class="avatar">
+                        <div class="client-info">
+                            <span class="client-name">SARAH CHEN</span>
+                            <span class="client-role">Founder, Studio Bloom</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="card-top">
+                        <div class="stars">★★★★★</div>
+                        <span class="client-badge"><i class="fa-solid fa-check"></i> VERIFIED CLIENT</span>
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                    </div>
+                    <p class="review-text">"Professional, fast, and technically superior. The assets from RE-RENDER are now a staple in my workflow."</p>
+                    <div class="client-profile">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Marcus Vogue" class="avatar">
+                        <div class="client-info">
+                            <span class="client-name">MARCUS VOGUE</span>
+                            <span class="client-role">Lead Editor, NEXUS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Frequently Asked Questions (FAQ) -->
+    <section class="faq-section" id="faq">
+        <div class="faq-header">
+            <div class="portfolio-meta">
+                <span class="meta-number">06</span> &mdash; FREQUENTLY_ASKED_QUESTIONS
+                <div class="meta-line"></div>
+            </div>
+            <h2 class="faq-title">
+                SOLVING YOUR <br>
+                <span class="title-highlight-red">DOUBTS.</span>
+            </h2>
+        </div>
+
+        <div class="faq-accordion">
+            <!-- Item 1 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>HOW DO REVISIONS WORK?</span>
+                    <i class="fa-solid fa-plus faq-icon"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>We offer unlimited iterations during the design and initial edit phase until you are 100% satisfied with the final outcome.</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>WHAT IS THE TYPICAL TURNAROUND?</span>
+                    <i class="fa-solid fa-plus faq-icon"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Standard turnaround is 48-72 hours. Priority 24-hour deliveries are available upon request for retainer clients.</p>
+                </div>
+            </div>
+
+            <!-- Item 3 (Active by default matching screenshot) -->
+            <div class="faq-item active">
+                <button class="faq-question" aria-expanded="true">
+                    <span>DO I GET THE RAW SOURCE FILES?</span>
+                    <i class="fa-solid fa-minus faq-icon"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>YES. UNLIKE OTHER AGENCIES, WE PROVIDE FULL SOURCE FILES (.PRPROJ, .AEP, .BLEND, ETC.) UPON COMPLETION AT NO EXTRA COST. YOUR ASSETS ARE YOURS.</p>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>HOW DOES PAYMENT WORK?</span>
+                    <i class="fa-solid fa-plus faq-icon"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>50% upfront to initiate the project, and 50% upon final delivery and client sign-off.</p>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>DO YOU OFFER BULK DISCOUNTS?</span>
+                    <i class="fa-solid fa-plus faq-icon"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! We offer customized retainer and multi-video volume packages with up to 30% savings for monthly deliverables.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Onboarding Contact Form -->
+    <section class="onboarding-section" id="contact">
+        <div class="onboarding-header">
+            <div class="portfolio-meta">
+                <span class="meta-number">07</span> &mdash; ONBOARDING_INITIATED
+                <div class="meta-line"></div>
+            </div>
+            <h2 class="onboarding-title">
+                START YOUR <br>
+                <span class="title-highlight-red">RE-RENDER.</span>
+            </h2>
+        </div>
+
+        <form class="onboarding-form" name="onboarding" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="onboarding" />
+            <p style="display:none;"><label>Don’t fill this out if human: <input name="bot-field" /></label></p>
+            <div class="form-grid">
+                <!-- Field 1 -->
+                <div class="form-group">
+                    <label class="form-label">IDENTIFICATION / NAME</label>
+                    <input type="text" name="name" class="form-input" placeholder="e.g. Alex Rivers" required>
+                </div>
+
+                <!-- Field 2 -->
+                <div class="form-group">
+                    <label class="form-label">TRANSMISSION_POINT / EMAIL</label>
+                    <input type="email" name="email" class="form-input" placeholder="alex@studio.com" required>
+                </div>
+
+                <!-- Field 3 -->
+                <div class="form-group">
+                    <label class="form-label">ORGANIZATION / COMPANY</label>
+                    <input type="text" name="company" class="form-input" placeholder="e.g. Future Media Group">
+                </div>
+
+                <!-- Field 4 -->
+                <div class="form-group">
+                    <label class="form-label">SOCIAL_NODE / LINK (IG, X, YT)</label>
+                    <input type="text" name="social" class="form-input" placeholder="e.g. @alexrivers_dev">
+                </div>
+
+                <!-- Field 5 -->
+                <div class="form-group">
+                    <label class="form-label">PROJECT_CLASSIFICATION</label>
+                    <div class="custom-select-wrapper">
+                        <div class="custom-select">
+                            <span class="custom-select-trigger" style="color: #555555;">Select Classification...</span>
+                            <i class="fa-solid fa-chevron-down custom-select-icon"></i>
+                        </div>
+                        <div class="custom-options">
+                            <div class="custom-option" data-value="editing">Video Editing</div>
+                            <div class="custom-option" data-value="motion">Motion Graphics</div>
+                            <div class="custom-option" data-value="thumbnails">Thumbnails & Hooks</div>
+                            <div class="custom-option" data-value="full">Full Channel Management</div>
+                        </div>
+                        <input type="hidden" name="project_classification" value="">
+                    </div>
+                </div>
+
+                <!-- Field 6 -->
+                <div class="form-group">
+                    <label class="form-label">ALLOCATED_BUDGET</label>
+                    <div class="custom-select-wrapper">
+                        <div class="custom-select">
+                            <span class="custom-select-trigger" style="color: #555555;">Select Budget...</span>
+                            <i class="fa-solid fa-chevron-down custom-select-icon"></i>
+                        </div>
+                        <div class="custom-options">
+                            <div class="custom-option" data-value="1k-3k">$1,000 - $3,000</div>
+                            <div class="custom-option" data-value="3k-5k">$3,000 - $5,000</div>
+                            <div class="custom-option" data-value="5k-10k">$5,000 - $10,000</div>
+                            <div class="custom-option" data-value="10k+">$10,000+</div>
+                        </div>
+                        <input type="hidden" name="allocated_budget" value="">
+                    </div>
+                </div>
+
+                <!-- Field 7 (Full Width) -->
+                <div class="form-group full-width">
+                    <label class="form-label">GEOGRAPHIC_LOCATION / TIMEZONE</label>
+                    <input type="text" name="location" class="form-input" placeholder="e.g. New York, EST">
+                </div>
+
+                <!-- Field 8 (Full Width Textarea) -->
+                <div class="form-group full-width">
+                    <label class="form-label">PROJECT_BRIEF / DETAILS</label>
+                    <textarea class="form-textarea" name="details" placeholder="Tell us about your vision, goals, and timeline..."></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-lock-project">
+                <span>LOCK IN PROJECT</span>
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </form>
+    </section>
+
+    <!-- Section 8: Still Scrolling CTA -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <div class="live-viewer-badge">
+                <span class="live-dot"></span>
+                <span>28 people are viewing this page right now</span>
+            </div>
+
+            <h2 class="cta-title">
+                STILL <br>
+                <span class="title-italic-red">scrolling?</span>
+            </h2>
+
+            <p class="cta-desc">
+                The brands that win don't hesitate. They move first.<br>
+                <strong>Your next project starts with one conversation.</strong>
+            </p>
+
+            <a href="#contact" class="btn-talk-cta">
+                <span>LET'S TALK &mdash; IT'S FREE</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <div class="cta-subnote">
+                <div class="response-time"><i class="fa-solid fa-bolt"></i> AVERAGE RESPONSE TIME: 2 HOURS</div>
+                <div class="no-risk">NO COMMITMENT. NO CREDIT CARD. JUST A CONVERSATION.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <!-- Top Meta Bar -->
+        <div class="footer-meta-bar">
+            <span class="meta-left">MODERN WEBSITE &amp; VIDEO STUDIO</span>
+            <span class="meta-dot">●</span>
+            <span class="meta-right">REMOTE FIRST &mdash; WORLDWIDE</span>
+        </div>
+
+        <!-- 4-Column Main Grid -->
+        <div class="footer-grid">
+            <!-- Column 1: Sitemap -->
+            <div class="footer-col">
+                <h4 class="col-title">SITEMAP</h4>
+                <ul class="footer-links">
+                    <li><a href="work.html">Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 2: Legal -->
+            <div class="footer-col">
+                <h4 class="col-title">LEGAL</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">License Agreement</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Socials -->
+            <div class="footer-col">
+                <h4 class="col-title">SOCIALS</h4>
+                <ul class="footer-links">
+                    <li><a href="#" target="_blank" rel="noopener">Instagram <span class="arrow">&nearr;</span></a></li>
+                    <li><a href="#" target="_blank" rel="noopener">Twitter / X <span class="arrow">&nearr;</span></a></li>
+                    <li><a href="#" target="_blank" rel="noopener">Threads <span class="arrow">&nearr;</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Contact Us -->
+            <div class="footer-col col-contact">
+                <h4 class="col-title">CONTACT US</h4>
+                <p class="contact-desc">Have a project in mind? We respond within 24 hours.</p>
+                <a href="mailto:real.re.render@gmail.com" class="footer-email">real.re.render@gmail.com <span class="arrow">&nearr;</span></a>
+            </div>
+        </div>
+
+        <!-- Giant Watermark Typography -->
+        <div class="footer-watermark-container">
+            <h1 class="footer-watermark">RE-RENDER</h1>
+        </div>
+
+        <!-- Bottom Copyright Sub-Footer Bar -->
+        <div class="footer-bottom-bar">
+            <div class="copyright">&copy; 2026 RE-RENDER INC. ALL RIGHTS RESERVED.</div>
+            <div class="void-tag">
+                <div class="void-percent">100%</div>
+                <div class="void-label">DESIGNED IN THE VOID.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for Dynamic Elements -->
+    <script>
+
+
+        // Initialize Lenis for smooth scrolling
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+        // FAQ Accordion Toggle
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const icon = button.querySelector('.faq-icon');
+                const isActive = item.classList.contains('active');
+                
+                // Toggle clicked item
+                if (isActive) {
+                    item.classList.remove('active');
+                    button.setAttribute('aria-expanded', 'false');
+                    if (icon) {
+                        icon.classList.remove('fa-minus');
+                        icon.classList.add('fa-plus');
+                    }
+                } else {
+                    item.classList.add('active');
+                    button.setAttribute('aria-expanded', 'true');
+                    if (icon) {
+                        icon.classList.remove('fa-plus');
+                        icon.classList.add('fa-minus');
+                    }
+                }
+            });
+        });
+
+        // Nav Scroll Pill Effect
+        const sleekNav = document.querySelector('.sleek-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                sleekNav.classList.add('scrolled');
+            } else {
+                sleekNav.classList.remove('scrolled');
+            }
+        });
+
+        // Preloader Reveal Animation & Scroll to Top
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+        // Custom Dropdown Logic
+        document.querySelectorAll('.custom-select-wrapper').forEach(wrapper => {
+            const select = wrapper.querySelector('.custom-select');
+            const trigger = wrapper.querySelector('.custom-select-trigger');
+            const options = wrapper.querySelectorAll('.custom-option');
+            const hiddenInput = wrapper.querySelector('input[type="hidden"]');
+            
+            select.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // Close other open dropdowns
+                document.querySelectorAll('.custom-select').forEach(other => {
+                    if (other !== select) {
+                        other.classList.remove('open');
+                    }
+                });
+                select.classList.toggle('open');
+            });
+            
+            options.forEach(option => {
+                option.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    // Update trigger text and style
+                    trigger.textContent = option.textContent;
+                    trigger.style.color = '#ffffff';
+                    
+                    // Update hidden input
+                    hiddenInput.value = option.getAttribute('data-value');
+                    
+                    // Update selected visual state
+                    options.forEach(opt => opt.classList.remove('selected'));
+                    option.classList.add('selected');
+                    
+                    select.classList.remove('open');
+                });
+            });
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.custom-select').forEach(select => {
+                select.classList.remove('open');
+            });
+        });
+
+        window.addEventListener('load', () => {
+            // Force scroll to top again just in case
+            window.scrollTo(0, 0);
+
+            requestAnimationFrame(() => {
+                const preloader = document.getElementById('door-preloader');
+                if(preloader) {
+                    preloader.classList.add('loaded');
+                    
+                    // Trigger hero content animations
+                    document.body.classList.add('page-loaded');
+                    
+                    // Hide the preloader completely after animation finishes (1.5s duration)
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 1500);
+                }
+            });
+        });
+
+    </script>
+    <script src="content-loader.js"></script>
+</body>
+</html>

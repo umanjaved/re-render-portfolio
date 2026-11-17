@@ -1,0 +1,305 @@
+/* Gallery Page specific */
+.gallery-page {
+    padding-top: 150px;
+    padding-bottom: 100px;
+}
+.gallery-title {
+    text-transform: uppercase;
+}
+.gallery-title em {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: 400;
+}
+.gallery-controls {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: flex-end;
+}
+.btn-back-archive {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+.btn-back-archive:hover {
+    background: #fff;
+    color: #000;
+}
+.gallery-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+.gallery-item {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    /* Aspect ratio will be controlled by images/video natural or enforced via max-height */
+    /* Remove strict aspect-ratio to allow varied sizes, or use 16:9 as baseline */
+    aspect-ratio: 16/9;
+}
+.gallery-item:hover {
+    transform: translate(-4px, -4px);
+    border-color: #ff003c;
+    box-shadow: 6px 6px 0px #ff003c;
+}
+.gallery-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gallery-item:hover .gallery-preview {
+    transform: scale(1.08);
+}
+.item-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 20%, transparent);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.item-info h4 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: -0.5px;
+}
+.item-type {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #fff;
+    background: #ff003c;
+    padding: 6px 10px;
+    border-radius: 2px;
+}
+.play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: #ff003c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.gallery-item:hover .play-overlay {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Gallery Top Ad Banner */
+.gallery-ad-banner {
+    max-width: 1200px;
+    margin: 0 auto 35px auto;
+    padding: 0 40px;
+}
+.gallery-ad-banner-inner {
+    background: linear-gradient(135deg, rgba(255, 0, 60, 0.08) 0%, rgba(20, 20, 20, 0.95) 100%);
+    border: 1px solid rgba(255, 0, 60, 0.3);
+    border-radius: 12px;
+    padding: 20px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+}
+.gallery-ad-banner-inner:hover {
+    border-color: #ff003c;
+    box-shadow: 0 10px 40px rgba(255, 0, 60, 0.15);
+}
+.gallery-ad-badge {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #ff003c;
+    font-family: 'Space Mono', monospace;
+    opacity: 0.8;
+}
+.gallery-ad-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+}
+.gallery-ad-media {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid #333;
+    flex-shrink: 0;
+}
+.gallery-ad-text h3 {
+    margin: 0 0 6px 0;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.3px;
+}
+.gallery-ad-text p {
+    margin: 0;
+    color: #aaa;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+.gallery-ad-btn {
+    padding: 10px 22px;
+    background: #ff003c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+.gallery-ad-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* In-Grid Ad Card */
+.ad-item {
+    border-color: rgba(255, 0, 60, 0.4) !important;
+    background: #0d0d0d !important;
+    text-decoration: none;
+}
+.ad-item:hover {
+    border-color: #ff003c !important;
+    box-shadow: 6px 6px 0px #ff003c !important;
+}
+.ad-item .item-type {
+    background: #ffd700;
+    color: #000;
+    font-weight: 900;
+}
+.ad-card-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 5;
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid #ffd700;
+    color: #ffd700;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-family: 'Space Mono', monospace;
+}
+.ad-card-desc {
+    color: #aaa;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    line-height: 1.3;
+}
+
+@media (max-width: 768px) {
+    .gallery-ad-banner-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .gallery-ad-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Custom Media Player Modal (Images & Videos) */
+.media-player-modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 10000;
+    display: none; /* toggled via JS */
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.media-player-modal.active {
+    display: flex;
+    opacity: 1;
+}
+.media-player-backdrop {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: blur(8px);
+}
+.media-player-content {
+    position: relative;
+    z-index: 10001;
+    width: 95vw;
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.media-player-content img,
+.media-player-content video {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Automatically handles landscape/portrait scaling */
+    border: 2px solid #333;
+    background: #000;
+    box-shadow: 0 0 40px rgba(255, 0, 60, 0.1);
+}
+.media-player-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    z-index: 10002;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+.media-player-close:hover {
+    color: #ff003c;
+    transform: scale(1.1);
+}

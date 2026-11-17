@@ -1,0 +1,396 @@
+{
+  "mediaLibrary": [],
+  "global": {
+    "logoText": "RE-RENDER",
+    "adminPassword": "rerender2026",
+    "nav": {
+      "links": [
+        {
+          "label": "Services",
+          "href": "#",
+          "hasDropdown": true,
+          "dropdown": [
+            {
+              "icon": "fa-solid fa-video",
+              "title": "Video Editing",
+              "desc": "High-retention editing for YouTube.",
+              "href": "#services"
+            },
+            {
+              "icon": "fa-solid fa-wand-magic-sparkles",
+              "title": "Motion Graphics",
+              "desc": "Custom animations and visual effects.",
+              "href": "#services"
+            },
+            {
+              "divider": true
+            },
+            {
+              "icon": "fa-solid fa-image",
+              "title": "Thumbnails",
+              "desc": "High CTR custom designs and hooks.",
+              "href": "#services"
+            }
+          ]
+        },
+        {
+          "label": "Work",
+          "href": "work.html"
+        },
+        {
+          "label": "FAQ",
+          "href": "index.html#faq"
+        },
+        {
+          "label": "About",
+          "href": "about.html"
+        }
+      ],
+      "ctaText": "Start Project",
+      "ctaHref": "index.html#contact"
+    },
+    "footer": {
+      "metaLeft": "MODERN WEBSITE & VIDEO STUDIO",
+      "metaRight": "REMOTE FIRST - WORLDWIDE",
+      "sitemap": [
+        {
+          "label": "Work",
+          "href": "work.html"
+        },
+        {
+          "label": "Contact",
+          "href": "index.html#contact"
+        },
+        {
+          "label": "About",
+          "href": "about.html"
+        },
+        {
+          "label": "Careers",
+          "href": "#careers"
+        }
+      ],
+      "legal": [
+        {
+          "label": "Terms of Service",
+          "content": "Welcome to RE-RENDER. By using our services, you agree to these terms..."
+        },
+        {
+          "label": "Privacy Policy",
+          "content": "Your privacy is important to us. We do not sell your data."
+        },
+        {
+          "label": "License Agreement",
+          "content": "All delivered assets are licensed for commercial use."
+        },
+        {
+          "label": "Refund Policy",
+          "content": "We offer refunds if the project has not yet commenced."
+        }
+      ],
+      "socials": [
+        {
+          "label": "Instagram",
+          "href": "#"
+        },
+        {
+          "label": "Twitter / X",
+          "href": "#"
+        },
+        {
+          "label": "Threads",
+          "href": "#"
+        }
+      ],
+      "contactDesc": "Have a project in mind? We respond within 24 hours.",
+      "contactEmail": "real.re.render@gmail.com",
+      "watermark": "RE-RENDER",
+      "copyright": "� 2026 RE-RENDER INC. ALL RIGHTS RESERVED.",
+      "voidPercent": "100%",
+      "voidLabel": "DESIGNED IN THE VOID."
+    },
+    "integrations": {
+      "tawkto": {
+        "enabled": false,
+        "propertyId": "",
+        "widgetId": ""
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "headingLine1": "WE MAKE CONTENT",
+      "headingLine2Prefix": "THAT",
+      "typewriterWords": [
+        "PERFORMS.",
+        "CONVERTS.",
+        "STANDS OUT."
+      ],
+      "subtitle": "Video Editing. Thumbnails. Motion Graphics. For creators who refuse to be average.",
+      "statsText": "50+ clients served . 500K+ views generated . Trusted by creators worldwide",
+      "btnPrimaryText": "VIEW OUR WORK",
+      "btnPrimaryLink": "work.html",
+      "btnSecondaryText": "START A PROJECT",
+      "btnSecondaryLink": "#contact"
+    },
+    "portfolio": {
+      "metaNumber": "01",
+      "metaLabel": "PORTFOLIO_SELECTION.2",
+      "title": "LIVING",
+      "titleItalic": "archive",
+      "archiveBtnText": "VIEW FULL ARCHIVE",
+      "videos": [
+        {
+          "poster": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          "src": "https://videos.pexels.com/video-files/3163534/3163534-uhd_2560_1440_30fps.mp4",
+          "column": "left",
+          "wide": true
+        },
+        {
+          "poster": "https://images.unsplash.com/photo-1594909122845-11baa439b7bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          "src": "https://videos.pexels.com/video-files/4763824/4763824-hd_1080_1920_30fps.mp4",
+          "column": "left"
+        },
+        {
+          "poster": "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          "src": "https://videos.pexels.com/video-files/5586616/5586616-hd_1080_1920_25fps.mp4",
+          "column": "middle"
+        },
+        {
+          "poster": "https://images.unsplash.com/photo-1531297121430-845622df1440?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          "src": "https://videos.pexels.com/video-files/3209828/3209828-uhd_2560_1440_25fps.mp4",
+          "column": "middle"
+        },
+        {
+          "poster": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          "src": "https://videos.pexels.com/video-files/6981411/6981411-hd_1080_1920_25fps.mp4",
+          "column": "right"
+        },
+        {
+          "poster": "https://images.unsplash.com/photo-1607513746994-51f730a44832?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          "src": "https://videos.pexels.com/video-files/8086687/8086687-hd_1080_1920_25fps.mp4",
+          "column": "right"
+        }
+      ]
+    },
+    "pipeline": {
+      "subtitle": "PROVEN ROI PIPELINE",
+      "titleLine1": "HOW WE DRIVE",
+      "titleHighlight": "RESULTS",
+      "steps": [
+        {
+          "number": "01",
+          "badge": "+150% CLARITY",
+          "title": "DISCOVERY",
+          "desc": "Aligning on vision, KPIs, and deliverables."
+        },
+        {
+          "number": "02",
+          "badge": "UNLIMITED ITERATIONS",
+          "title": "IDEATION & DESIGN",
+          "desc": "Crafting the visual identity and structural flow."
+        },
+        {
+          "number": "03",
+          "badge": "0.1S LOAD TIMES",
+          "title": "DEVELOPMENT / RENDER",
+          "desc": "Bringing the vision to life with pixel perfection."
+        },
+        {
+          "number": "04",
+          "badge": "5X ROI AVERAGE",
+          "title": "DELIVERY & SCALING",
+          "desc": "Handing over the keys, ready for client acquisition."
+        }
+      ]
+    },
+    "socialProof": {
+      "metaNumber": "05",
+      "metaLabel": "SOCIAL_PROOF",
+      "titleLine1": "DON'T TAKE",
+      "titleHighlight": "OUR WORD FOR IT.",
+      "desc": "Every client we've worked with has come back for more. Here's why they can't stop recommending us.",
+      "testimonials": [
+        {
+          "text": "\"Working with RE-RENDER increased our channel views by 400% in 30 days. Their editing style is unreal.\"",
+          "name": "ALEX RIVERA",
+          "role": "Creative Director @ VOLT",
+          "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+        },
+        {
+          "text": "\"Finally an agency that understands the 'lo-fi' luxury vibe. Their custom transitions saved me weeks of work.\"",
+          "name": "ELENA ROSSI",
+          "role": "Independent Filmmaker",
+          "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+        },
+        {
+          "text": "\"The brutalist aesthetic they brought to our brand was exactly what we needed to stand out in a crowded market.\"",
+          "name": "SARAH CHEN",
+          "role": "Founder, Studio Bloom",
+          "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+        },
+        {
+          "text": "\"Professional, fast, and technically superior. The assets from RE-RENDER are now a staple in my workflow.\"",
+          "name": "MARCUS VOGUE",
+          "role": "Lead Editor, NEXUS",
+          "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+        }
+      ]
+    },
+    "faq": {
+      "metaNumber": "06",
+      "metaLabel": "FREQUENTLY_ASKED_QUESTIONS",
+      "titleLine1": "SOLVING YOUR",
+      "titleHighlight": "DOUBTS.",
+      "items": [
+        {
+          "question": "HOW DO REVISIONS WORK?",
+          "answer": "We offer unlimited iterations during the design and initial edit phase until you are 100% satisfied with the final outcome."
+        },
+        {
+          "question": "WHAT IS THE TYPICAL TURNAROUND?",
+          "answer": "Standard turnaround is 48-72 hours. Priority 24-hour deliveries are available upon request for retainer clients."
+        },
+        {
+          "question": "DO I GET THE RAW SOURCE FILES?",
+          "answer": "YES. UNLIKE OTHER AGENCIES, WE PROVIDE FULL SOURCE FILES (.PRPROJ, .AEP, .BLEND, ETC.) UPON COMPLETION AT NO EXTRA COST. YOUR ASSETS ARE YOURS.",
+          "active": true
+        },
+        {
+          "question": "HOW DOES PAYMENT WORK?",
+          "answer": "50% upfront to initiate the project, and 50% upon final delivery and client sign-off."
+        },
+        {
+          "question": "DO YOU OFFER BULK DISCOUNTS?",
+          "answer": "Yes! We offer customized retainer and multi-video volume packages with up to 30% savings for monthly deliverables."
+        }
+      ]
+    },
+    "onboarding": {
+      "metaNumber": "07",
+      "metaLabel": "ONBOARDING_INITIATED",
+      "titleLine1": "START YOUR",
+      "titleHighlight": "RE-RENDER.",
+      "btnText": "TRANSMIT_REQUEST",
+      "fields": {
+        "name": {
+          "label": "IDENTIFICATION / NAME",
+          "placeholder": "e.g. Alex Rivers"
+        },
+        "email": {
+          "label": "TRANSMISSION_POINT / EMAIL",
+          "placeholder": "alex@studio.com"
+        },
+        "company": {
+          "label": "ORGANIZATION / COMPANY",
+          "placeholder": "e.g. Future Media Group"
+        },
+        "social": {
+          "label": "SOCIAL_NODE / LINK (IG, X, YT)",
+          "placeholder": "e.g. @alexrivers_dev"
+        },
+        "project_classification": {
+          "label": "PROJECT_CLASSIFICATION",
+          "placeholder": "Select Classification...",
+          "options": "Video Editing, Motion Graphics, Thumbnails & Hooks, Full Channel Management"
+        },
+        "allocated_budget": {
+          "label": "ALLOCATED_BUDGET",
+          "placeholder": "Select Budget...",
+          "options": "$1,000 - $3,000, $3,000 - $5,000, $5,000 - $10,000, $10,000+"
+        },
+        "location": {
+          "label": "GEOGRAPHIC_LOCATION / TIMEZONE",
+          "placeholder": "e.g. New York, EST"
+        },
+        "details": {
+          "label": "PROJECT_BRIEF / DETAILS",
+          "placeholder": "Tell us about your vision, goals, and timeline..."
+        }
+      }
+    },
+    "cta": {
+      "liveBadge": "28 people are viewing this page right now",
+      "titleLine1": "STILL",
+      "titleItalic": "scrolling?",
+      "desc": "The brands that win don't hesitate. They move first.",
+      "descStrong": "Your next project starts with one conversation.",
+      "btnText": "LET'S TALK - IT'S FREE",
+      "responseTime": "AVERAGE RESPONSE TIME: 2 HOURS",
+      "noRisk": "NO COMMITMENT. NO CREDIT CARD. JUST A CONVERSATION."
+    }
+  },
+  "about": {
+    "badge": "?? Hi, Welcome to My Portfolio",
+    "name": "I'm Hussnain",
+    "typewriterWords": [
+      "Motion Designer",
+      "Video Editor",
+      "Creative Strategist"
+    ],
+    "profileImage": "https://images.unsplash.com/photo-1555952517-2e8e729e0b44?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "bio": "I'm <strong>Hussnain</strong>, a passionate motion designer with over 3 years of experience crafting high-impact visuals for creators and brands worldwide. I specialize in video editing, motion graphics, and thumbnail design that converts viewers into fans.",
+    "socialLinks": [
+      {
+        "icon": "fa-brands fa-x-twitter",
+        "href": "#"
+      },
+      {
+        "icon": "fa-brands fa-instagram",
+        "href": "#"
+      },
+      {
+        "icon": "fa-brands fa-linkedin-in",
+        "href": "#"
+      }
+    ],
+    "stats": [
+      {
+        "number": "50+",
+        "label": "Clients Served"
+      },
+      {
+        "number": "500K+",
+        "label": "Views Generated"
+      },
+      {
+        "number": "3+",
+        "label": "Years Experience"
+      }
+    ],
+    "faq": [
+      {
+        "question": "What is your turnaround time?",
+        "answer": "Usually 2-3 business days per video depending on the complexity of the project and motion graphics required."
+      },
+      {
+        "question": "What software do you use?",
+        "answer": "I primarily work in Premiere Pro and After Effects for precise editing and complex motion graphic workflows."
+      },
+      {
+        "question": "Do you offer revisions?",
+        "answer": "Yes, all packages include up to 2 rounds of revisions to ensure the final product perfectly matches your vision."
+      },
+      {
+        "question": "How do we communicate?",
+        "answer": "I prefer Slack or email for daily communication, and we can hop on a Zoom call for project onboarding."
+      }
+    ]
+  },
+  "work": {
+    "breadcrumb": "ARCHIVE",
+    "titleLine1": "THE",
+    "titleItalic": "STUDIO",
+    "titleLine2": "ARCHIVE"
+  },
+  "galleryAd": {
+    "enabled": false,
+    "badge": "SPONSORED",
+    "title": "EXCLUSIVE CREATOR DEAL",
+    "desc": "Get 20% off premier video plugins, LUTs, and motion assets.",
+    "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    "link": "https://re-render.com",
+    "ctaText": "CLAIM DEAL",
+    "customHtml": ""
+  }
+}

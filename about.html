@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re-Render | About Hussnain</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts: Inter & Space Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Lenis for smooth scrolling -->
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.9/dist/lenis.css">
+    <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+</head>
+<body>
+    <!-- Initial Reveal Door Animation -->
+    <div id="door-preloader" class="door-preloader">
+        <div class="door-panel door-left"></div>
+        <div class="door-panel door-right"></div>
+    </div>
+
+    <!-- ColorBends WebGL Shader Canvas Background -->
+    <canvas id="colorbends-canvas"></canvas>
+    <div class="hero-vignette"></div>
+    <script src="colorbends.js"></script>
+
+    <!-- Sleek Navigation Menu -->
+    <nav class="sleek-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">RE-RENDER</a>
+            
+            <ul class="nav-links">
+                <li class="nav-item has-dropdown">
+                    <a href="index.html#services" class="nav-link">Services <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="nav-dropdown">
+                        <a href="index.html#services" class="dropdown-item">
+                            <div class="dropdown-icon"><i class="fa-solid fa-video"></i></div>
+                            <div class="dropdown-text">
+                                <h4>Video Editing</h4>
+                                <p>High-retention editing for YouTube.</p>
+                            </div>
+                        </a>
+                        <a href="index.html#services" class="dropdown-item">
+                            <div class="dropdown-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                            <div class="dropdown-text">
+                                <h4>Motion Graphics</h4>
+                                <p>Custom animations and visual effects.</p>
+                            </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="index.html#services" class="dropdown-item">
+                            <div class="dropdown-icon"><i class="fa-solid fa-image"></i></div>
+                            <div class="dropdown-text">
+                                <h4>Thumbnails</h4>
+                                <p>High CTR custom designs and hooks.</p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="work.html" class="nav-link">Work</a></li>
+                <li class="nav-item"><a href="index.html#faq" class="nav-link">FAQ</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link active-link">About</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="index.html#contact" class="nav-btn">Start Project</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="about-section">
+        <div class="about-container">
+            <div class="about-left">
+                <div class="about-image-wrapper">
+                    <!-- Placeholder using a professional portrait -->
+                    <img src="https://images.unsplash.com/photo-1555952517-2e8e729e0b44?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hussnain - Motion Designer">
+                </div>
+            </div>
+            <div class="about-right">
+                <div class="about-badge">
+                    👋 Hi, Welcome to My Portfolio
+                </div>
+                <div class="about-headings">
+                    <h1 class="about-title">I'm Hussnain</h1>
+                    <h2 class="about-subtitle"><span id="typewriter-text"></span><span class="cursor-blink">|</span></h2>
+                </div>
+                
+                <div class="about-card">
+                    <div class="about-card-header">
+                        <div class="card-title">
+                            <i class="fa-regular fa-face-smile"></i> About Me
+                        </div>
+                        <div class="card-socials"></div>
+                    </div>
+                    <div class="about-card-body">
+                        <p>I'm <strong>Hussnain Ali</strong>, a video editor specializing in VSLs, SaaS explainers, and long-form YouTube videos for businesses. Every cut, sound, and transition is intentional — built to hold attention, increase watch time, and drive real results for brands in finance, business, and tech.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Stats Section -->
+        <div class="about-stats">
+            <div class="stat-box">
+                <h3 class="stat-number">50+</h3>
+                <p class="stat-label">Clients Served</p>
+            </div>
+            <div class="stat-box">
+                <h3 class="stat-number">500K+</h3>
+                <p class="stat-label">Views Generated</p>
+            </div>
+            <div class="stat-box">
+                <h3 class="stat-number">3+</h3>
+                <p class="stat-label">Years Experience</p>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="about-faq">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-card">
+                    <h4>What is your turnaround time?</h4>
+                    <p>Usually 2-3 business days per video depending on the complexity of the project and motion graphics required.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>What software do you use?</h4>
+                    <p>I primarily work in Premiere Pro and After Effects for precise editing and complex motion graphic workflows.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>Do you offer revisions?</h4>
+                    <p>Yes, all packages include up to 2 rounds of revisions to ensure the final product perfectly matches your vision.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>How do we communicate?</h4>
+                    <p>I prefer Slack or email for daily communication, and we can hop on a Zoom call for project onboarding.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Nav Scroll Pill Effect
+        const sleekNav = document.querySelector('.sleek-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                sleekNav.classList.add('scrolled');
+            } else {
+                sleekNav.classList.remove('scrolled');
+            }
+        });
+
+        // Preloader Logic
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
+        window.addEventListener('load', () => {
+            window.scrollTo(0, 0);
+            requestAnimationFrame(() => {
+                const preloader = document.getElementById('door-preloader');
+                if(preloader) {
+                    preloader.classList.add('loaded');
+                    document.body.classList.add('page-loaded');
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 1500);
+                }
+            });
+        });
+
+    </script>
+    <script src="content-loader.js"></script>
+</body>
+</html>

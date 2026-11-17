@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re-Render | Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gallery.css">
+    
+    <!-- Google Fonts: Inter & Space Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Lenis for smooth scrolling -->
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.9/dist/lenis.css">
+    <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+</head>
+<body>
+    <!-- Initial Reveal Door Animation -->
+    <div id="door-preloader" class="door-preloader">
+        <div class="door-panel door-left"></div>
+        <div class="door-panel door-right"></div>
+    </div>
+
+    <!-- ColorBends WebGL Shader Canvas Background -->
+    <canvas id="colorbends-canvas"></canvas>
+    <div class="hero-vignette"></div>
+    <script src="colorbends.js"></script>
+
+    <!-- Sleek Navigation Menu (Injected via JS) -->
+    <nav class="sleek-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">RE-RENDER</a>
+            <ul class="nav-links"></ul>
+            <div class="nav-actions">
+                <a href="index.html#contact" class="nav-btn">Start Project</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Gallery Page Content -->
+    <main class="archive-page gallery-page">
+        <!-- Archive Header -->
+        <header class="archive-hero">
+            <div class="archive-breadcrumb">
+                <span class="bc-slash">/</span> ARCHIVE <span class="bc-slash">/</span> <span class="bc-folder">FOLDER</span>
+            </div>
+            <h1 class="archive-title gallery-title">
+                COLLECTION
+            </h1>
+            <div class="archive-rule"></div>
+        </header>
+
+        <!-- Back to Archive Button -->
+        <div class="gallery-controls">
+            <a href="work.html" class="btn-back-archive">[BACK_TO_ARCHIVE]</a>
+        </div>
+
+        <!-- Dynamic Grid Injected via JS -->
+        <div class="gallery-grid">
+            <!-- Items load here -->
+        </div>
+    </main>
+
+    <!-- Footer Section (Injected via JS) -->
+    <footer class="site-footer">
+        <div class="footer-meta-bar">
+            <span class="meta-left"></span>
+            <span class="meta-dot">●</span>
+            <span class="meta-right"></span>
+        </div>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4 class="col-title">SITEMAP</h4>
+                <ul class="footer-links"></ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="col-title">LEGAL</h4>
+                <ul class="footer-links"></ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="col-title">SOCIALS</h4>
+                <ul class="footer-links"></ul>
+            </div>
+            <div class="footer-col col-contact">
+                <h4 class="col-title">CONTACT US</h4>
+                <p class="contact-desc"></p>
+                <a href="#" class="footer-email"></a>
+            </div>
+        </div>
+        <div class="footer-watermark-container">
+            <h1 class="footer-watermark"></h1>
+        </div>
+        <div class="footer-bottom-bar">
+            <div class="copyright"></div>
+            <div class="void-tag">
+                <div class="void-percent"></div>
+                <div class="void-label"></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CMS Content Loader (Injects Universal Media Player Modal) -->
+    <script src="content-loader.js"></script>
+
+    <!-- Interaction Script -->
+    <script>
+        // Lenis smooth scrolling
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true,
+        });
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Nav Scroll Pill Effect
+        const sleekNav = document.querySelector('.sleek-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                sleekNav.classList.add('scrolled');
+            } else {
+                sleekNav.classList.remove('scrolled');
+            }
+        });
+
+        // Preloader
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        
+        window.addEventListener('load', () => {
+            window.scrollTo(0, 0);
+            requestAnimationFrame(() => {
+                const preloader = document.getElementById('door-preloader');
+                if(preloader) {
+                    preloader.classList.add('loaded');
+                    document.body.classList.add('page-loaded');
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 1500);
+                }
+            });
+        });
+
+        // Unified Media Player Logic is now handled centrally by content-loader.js
+    </script>
+</body>
+</html>

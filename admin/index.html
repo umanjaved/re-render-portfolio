@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RE-RENDER | Admin Dashboard v4.0</title>
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-screen active">
+        <div class="login-box">
+            <h2>ADMIN ACCESS</h2>
+            <p>Enter the master password to access the CMS.</p>
+            <input type="password" id="admin-pass" placeholder="Password...">
+            <button id="btn-login" class="btn">LOGIN</button>
+            <p id="login-error" style="color: #ff003c; display: none; margin-top: 10px;">Incorrect Password.</p>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="admin-dashboard" class="dashboard">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>RE-RENDER CMS</h2>
+                <p>v4.0.0 Live Sync</p>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-section-title">SYSTEM</li>
+                <li class="active" data-tab="tab-security" data-iframe-src="../index.html"><i class="fa-solid fa-lock"></i> Security</li>
+                <li data-tab="tab-global" data-iframe-src="../index.html"><i class="fa-solid fa-globe"></i> Global (Nav/Footer)</li>
+                
+                <li class="nav-section-title">PAGES</li>
+                <li data-tab="tab-home-hero" data-iframe-src="../index.html"><i class="fa-solid fa-house"></i> Home: Hero & CTA</li>
+                <li data-tab="tab-home-pipeline" data-iframe-src="../index.html#pipeline"><i class="fa-solid fa-chart-line"></i> Home: Pipeline</li>
+                <li data-tab="tab-home-portfolio" data-iframe-src="../index.html#portfolio"><i class="fa-solid fa-video"></i> Home: Portfolio</li>
+                <li data-tab="tab-home-reviews" data-iframe-src="../index.html#reviews"><i class="fa-solid fa-star"></i> Home: Reviews</li>
+                <li data-tab="tab-home-faq" data-iframe-src="../index.html#faq"><i class="fa-solid fa-circle-question"></i> Home: FAQ</li>
+                <li data-tab="tab-home-onboarding" data-iframe-src="../index.html#onboarding"><i class="fa-solid fa-envelope"></i> Home: Onboarding Form</li>
+                <li data-tab="tab-about" data-iframe-src="../about.html"><i class="fa-solid fa-user"></i> About Page</li>
+                
+                <li class="nav-section-title">GALLERY & LEADS</li>
+                <li data-tab="tab-folders" data-iframe-src="../work.html"><i class="fa-solid fa-folder-open"></i> Folders</li>
+                <li data-tab="tab-media-library" data-iframe-src="../work.html"><i class="fa-solid fa-images"></i> Media Library</li>
+                <li data-tab="tab-submissions" data-iframe-src="../index.html#contact"><i class="fa-solid fa-inbox"></i> Form Submissions</li>
+            </ul>
+            <div class="sidebar-actions">
+                <button id="btn-save-permanent" class="btn btn-primary btn-save-glow"><i class="fa-solid fa-floppy-disk"></i> PERMANENT SAVE</button>
+                
+                <div class="autosave-toggle-container">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="toggle-autosave">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span class="toggle-label">Auto-Save Drafts</span>
+                </div>
+                
+                <div id="backend-status-badge" class="backend-badge checking">
+                    <i class="fa-solid fa-circle-dot"></i> <span id="backend-status-text">Checking Server...</span>
+                </div>
+                
+                <div style="display:flex; gap:8px;">
+                    <button id="btn-export" class="btn btn-outline btn-sm" style="flex:1;"><i class="fa-solid fa-download"></i> Export JSON</button>
+                    <button id="btn-logout" class="btn btn-danger btn-sm" onclick="Admin.logout()" title="Logout"><i class="fa-solid fa-right-from-bracket"></i></button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <!-- Security Tab -->
+            <section id="tab-security" class="tab-content active">
+                <div class="form-column">
+                    <div class="section-header">
+                        <h2>Security Settings</h2>
+                        <p>Change your master admin password and manage session.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Admin Password</label>
+                        <div style="display:flex; gap:10px;">
+                            <input type="password" id="g-adminPassword" style="flex:1;">
+                            <button type="button" class="btn btn-outline btn-sm" onclick="Admin.togglePasswordVisibility('g-adminPassword')"><i class="fa-solid fa-eye" id="toggle-eye-icon"></i> Show</button>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top: 35px;"><i class="fa-brands fa-github"></i> Netlify / GitHub Live Sync (Optional for Netlify)</h3>
+                    <p style="color:#888; font-size:0.85rem; margin-bottom:15px;">If you host on Netlify Free Tier, connecting your GitHub repository allows the PERMANENT SAVE button to commit changes directly to GitHub, triggering an automatic Netlify live build in ~20 seconds.</p>
+                    <div class="form-group">
+                        <label>GitHub Repository (owner/repo)</label>
+                        <input type="text" id="g-githubRepo" placeholder="e.g. yourusername/my-portfolio-site">
+                    </div>
+                    <div class="form-group">
+                        <label>GitHub Personal Access Token (with 'repo' scope)</label>
+                        <div style="display:flex; gap:10px;">
+                            <input type="password" id="g-githubToken" placeholder="ghp_..." style="flex:1;">
+                            <button type="button" class="btn btn-outline btn-sm" onclick="Admin.togglePasswordVisibility('g-githubToken')"><i class="fa-solid fa-eye" id="toggle-eye-github"></i> Show</button>
+                        </div>
+                        <small style="color:#666; font-size:0.75rem; margin-top:5px; display:block;">Stored locally in your private admin configuration to enable 1-click live publish on Netlify.</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Global Tab -->
+            <section id="tab-global" class="tab-content">
+                <div class="form-column">
+                    <div class="section-header">
+                        <h2>Global Settings</h2>
+                        <p>Manage site-wide elements.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Logo Text</label>
+                        <input type="text" id="g-logoText">
+                    </div>
+                    
+                    <h3>Navigation Main CTA</h3>
+                    <div class="form-group">
+                        <label>CTA Button Text</label>
+                        <input type="text" id="g-navCtaText">
+                    </div>
+                    <div class="form-group">
+                        <label>CTA Button Link</label>
+                        <input type="text" id="g-navCtaHref">
+                    </div>
+
+                    <h3>Footer Settings</h3>
+                    <div class="form-group">
+                        <label>Meta Left</label>
+                        <input type="text" id="g-footerMetaLeft">
+                    </div>
+                    <div class="form-group">
+                        <label>Meta Right</label>
+                        <input type="text" id="g-footerMetaRight">
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Description</label>
+                        <input type="text" id="g-footerContactDesc">
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Email</label>
+                        <input type="email" id="g-footerContactEmail">
+                    </div>
+                    <div class="form-group">
+                        <label>Copyright Text</label>
+                        <input type="text" id="g-footerCopyright">
+                    </div>
+                    <div class="form-group">
+                        <label>Footer Large Watermark Text</label>
+                        <input type="text" id="g-footerWatermark">
+                    </div>
+
+                    <h3 style="margin-top: 30px;">Footer Legal Pages (Popups)</h3>
+                    <div id="footer-legal-list" class="dynamic-list"></div>
+                    <button class="btn btn-outline btn-sm" onclick="Admin.addArrayItem('footerLegal')">+ Add Legal Page</button>
+
+                    <h3 style="margin-top: 30px;">Footer Social Links</h3>
+                    <div id="footer-socials-list" class="dynamic-list"></div>
+                    <button class="btn btn-outline btn-sm" onclick="Admin.addArrayItem('footerSocials')">+ Add Social Link</button>
+
+                    <h3 style="margin-top: 30px;">Integrations (Tawk.to)</h3>
+                    <div class="form-group" style="display:flex; align-items:center; gap:10px;">
+                        <input type="checkbox" id="g-tawkto-enabled" style="width:20px; height:20px; accent-color:#ff003c; cursor:pointer;">
+                        <label for="g-tawkto-enabled" style="margin:0; cursor:pointer; color:#fff;">Enable Tawk.to Live Chat</label>
+                    </div>
+                    <div class="form-group">
+                        <label>Property ID (e.g. 66ae...)</label>
+                        <input type="text" id="g-tawkto-propertyId">
+                    </div>
+                    <div class="form-group">
+                        <label>Widget ID (e.g. 1ia... or default)</label>
+                        <input type="text" id="g-tawkto-widgetId" placeholder="default">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Home Hero Tab -->
+            <section id="tab-home-hero" class="tab-content">
+                <div class="form-column">
+                    <div class="section-header">
+                        <h2>Home: Hero & CTA</h2>
+                        <p>Manage the top hero section and bottom CTA section.</p>
+                    </div>
+                    <h3>Hero Section</h3>
+                    <div class="form-group">
+                        <label>Hero Heading (Line 1)</label>
+                        <input type="text" id="h-headingLine1">
+                    </div>
+                    <div class="form-group">
+                        <label>Hero Heading (Line 2 Prefix)</label>
+                        <input type="text" id="h-headingLine2Prefix">
+                    </div>
+                    <div class="form-group">
+                        <label>Typewriter Words (Comma separated)</label>
+                        <input type="text" id="h-typewriterWords">
+                    </div>
+                    <div class="form-group">
+                        <label>Subtitle (Use &lt;br&gt; for line breaks)</label>
+                        <textarea id="h-subtitle"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Stats Text (Use &bull; for dots)</label>
+                        <input type="text" id="h-statsText">
+                    </div>
+                    <div class="form-group">
+                        <label>Primary Button Text</label>
+                        <input type="text" id="h-btnPrimaryText">
+                    </div>
+                    <div class="form-group">
+                        <label>Primary Button Link</label>
+                        <input type="text" id="h-btnPrimaryLink">
+                    </div>
+                    <div class="form-group">
+                        <label>Secondary Button Text</label>
+                        <input type="text" id="h-btnSecondaryText">
+                    </div>
+                    <div class="form-group">
+                        <label>Secondary Button Link</label>
+                        <input type="text" id="h-btnSecondaryLink">
+                    </div>
+
+                    <h3>Bottom CTA Section</h3>
+                    <div class="form-group">
+                        <label>Live Viewers Badge Text</label>
+                        <input type="text" id="h-ctaLiveBadge">
+                    </div>
+                    <div class="form-group">
+                        <label>Title Line 1</label>
+                        <input type="text" id="h-ctaTitleLine1">
+                    </div>
+                    <div class="form-group">
+                        <label>Title Italic</label>
+                        <input type="text" id="h-ctaTitleItalic">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" id="h-ctaDesc">
+                    </div>
+                    <div class="form-group">
+                        <label>Description (Strong/Bold)</label>
+                        <input type="text" id="h-ctaDescStrong">
+                    </div>
+                    <div class="form-group">
+                        <label>Button Text</label>
+                        <input type="text" id="h-ctaBtnText">
+                    </div>
+                    <div class="form-group">
+                        <label>Response Time Note</label>
+                        <input type="text" id="h-ctaResponseTime">
+                    </div>
+                    <div class="form-group">
+                        <label>No Risk Note</label>
+                        <input type="text" id="h-ctaNoRisk">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Home Pipeline Tab -->
+            <section id="tab-home-pipeline" class="tab-content">
+                <div class="form-column">
+                    <div class="section-header">
+                        <h2>Home: Pipeline Steps</h2>
+                        <p>Manage the 'How We Drive Results' steps.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Section Subtitle</label>
+                        <input type="text" id="h-pipeSubtitle">
+                    </div>
+                    <div class="form-group">
+                        <label>Title Line 1</label>
+                        <input type="text" id="h-pipeTitle1">
+                    </div>
+                    <div class="form-group">
+                        <label>Title Highlight</label>
+                        <input type="text" id="h-pipeTitleHighlight">
+                    </div>
+                    <div id="pipeline-list" class="dynamic-list"></div>
+                    <button class="btn btn-outline btn-sm" onclick="Admin.addArrayItem('pipeline')">+ Add Step</button>
+                </div>
+            </section>
+
+            <!-- Home Portfolio Tab -->
+            <section id="tab-home-portfolio" class="tab-content">
+                <div class="form-column">
+                    <div class="section-header">
+                        <h2>Home: Portfolio Grid</h2>
+                        <p>Manage the 6 videos shown on the homepage.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Meta Number</label>
+                        <input type="text" id="h-portMetaNumber">
+                    </div>
+                    <div class="form-group">
+                        <label>Meta Label</label>
+                        <input type="text" id="h-portMetaLabel">
+                    </div>
+                    <div class="form-group">
+                        <label>Title Text</label>
+                        <input type="text" id="h-portTitle">
+                    </div>
+                    <div class="form-group">
+                        <label>Title Italic</label>
+                        <input type="text" id="h-portTitleItalic">
+                    </div>
+                    <div class="form-group">
+                        <label>Archive Button Text</label>
+                        <input type="text" id="h-portArchiveBtnText">
+                    </div>
+                    <div id="portfolio-vids-list" class="dynamic-list"></div>
+                    <button class="btn btn-outline btn-sm" onclick="Admin.addArrayItem('portfolioVid')">+ Add Video</button>
+                </div>
+            </section>
+
+            <!-- Home Reviews Tab -->
+            <section id="tab-home-reviews" class="tab-content">
+                <div class="form-column">
+                    <div class="section-header">
+                        <h2>Home: Testimonials & Social Proof</h2>
+                        <p>Manage client reviews and header texts.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Meta Number (e.g. 05)</label>
+                        <input type="text" id="h-proofMetaNumber">
+                    </div>
+                    <div class="form-group">
+                        <label>Meta Label (e.g. SOCIAL_PROOF)</label>
+                        <input type="text" id="h-proofMetaLabel">
+                    </div>
+                    <div class="form-group">
+                        <label>Title Line 1</label>
+                        <input type="text" id="h-proofTitle1">
+                    </div>
+                    <div class="form-group">
+                        <label>Title Highlight (Red)</label>
+                        <input type="text" id="h-proofTitleHighlight">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="h-proofDesc" rows="3"></textarea>
+                    </div>
+
+                    <h3 style="margin-top: 30px;">Client Testimonials</h3>
+                    <div id="reviews-list" class="dynamic-list"></div>
+                    <button class="btn btn-outline btn-sm" onclick="Admin.addArrayItem('review')">+ Add Testimonial</button>
+                </div>
+            </section>
+
+            <!-- Home FAQ Tab -->
+            <section id="tab-home-faq" class="tab-content">
+                <div class="form-column">
+                    <div class="section-header">
+                        <h2>Home: FAQ</h2>
+                        <p>Manage frequently asked questions.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Meta Number (e.g. 06)</label>
+                        <input type="text" id="h-faqMetaNumber">
+                    </div>
+                    <div class="form-group">
+                        <label>Meta Label (e.g. FREQUENTLY_ASKED_QUESTIONS)</label>
+                        <input type="text" id="h-faqMetaLabel">
+                    </div>
+                    <div class="form-group">
+                        <label>Title Line 1</label>
+                        <input type="text" id="h-faqTitle1">
+                    </div>
+                    <div class="form-group">
+                        <label>Highlight Question Prefix</label>
+                        <input type="text" id="h-faqTitleHighlight">
+                    </div>
+
+                    <h3 style="margin-top: 30px;">FAQ Items</h3>
+                    <div id="home-faq-list" class="dynamic-list"></div>
+                    <button class="btn btn-outline btn-sm" onclick="Admin.addArrayItem('homeFaq')">+ Add FAQ</button>
+                </div>
+            </section>
+
+            <!-- Home Onboarding Form Tab -->
+            <section id="tab-home-onboarding" class="tab-content">
+                <div class="form-column">
+                    <div class="section-header">
+                        <h2>Home: Onboarding Form</h2>
+                        <p>Manage the titles and button text for the contact form.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Meta Number (e.g. 07)</label>
+                        <input type="text" id="h-onbMetaNumber">
+                    </div>
+                    <div class="form-group">
+                        <label>Meta Label (e.g. ONBOARDING_INITIATED)</label>
+                        <input type="text" id="h-onbMetaLabel">
+                    </div>
+                    <div class="form-group">
+                        <label>Title Line 1</label>
+                        <input type="text" id="h-onbTitle1">
+                    </div>
+                    <div class="form-group">
+                        <label>Title Highlight</label>
+                        <input type="text" id="h-onbTitleHighlight">
+                    </div>
+                    <div class="form-group">
+                        <label>Submit Button Text</label>
+                        <input type="text" id="h-onbBtnText">
+                    </div>
+                    
+                    <h3 style="margin-top: 40px;">Form Fields</h3>
+                    
+                    <div class="dynamic-item" style="margin-bottom:15px;">
+                        <h4>1. Name</h4>
+                        <div class="form-group"><label>Label</label><input type="text" id="h-onb-f-name-label"></div>
+                        <div class="form-group"><label>Placeholder</label><input type="text" id="h-onb-f-name-placeholder"></div>
+                    </div>
+                    
+                    <div class="dynamic-item" style="margin-bottom:15px;">
+                        <h4>2. Email</h4>
+                        <div class="form-group"><label>Label</label><input type="text" id="h-onb-f-email-label"></div>
+                        <div class="form-group"><label>Placeholder</label><input type="text" id="h-onb-f-email-placeholder"></div>
+                    </div>
+                    
+                    <div class="dynamic-item" style="margin-bottom:15px;">
+                        <h4>3. Company</h4>
+                        <div class="form-group"><label>Label</label><input type="text" id="h-onb-f-company-label"></div>
+                        <div class="form-group"><label>Placeholder</label><input type="text" id="h-onb-f-company-placeholder"></div>
+                    </div>
+                    
+                    <div class="dynamic-item" style="margin-bottom:15px;">
+                        <h4>4. Social</h4>
+                        <div class="form-group"><label>Label</label><input type="text" id="h-onb-f-social-label"></div>
+                        <div class="form-group"><label>Placeholder</label><input type="text" id="h-onb-f-social-placeholder"></div>
+                    </div>
+                    
+                    <div class="dynamic-item" style="margin-bottom:15px;">
+                        <h4>5. Project Classification (Dropdown)</h4>
+                        <div class="form-group"><label>Label</label><input type="text" id="h-onb-f-class-label"></div>
+                        <div class="form-group"><label>Placeholder</label><input type="text" id="h-onb-f-class-placeholder"></div>
+                        <div class="form-group"><label>Options (Comma-separated)</label><textarea id="h-onb-f-class-options" rows="3"></textarea></div>
+                    </div>
+                    
+                    <div class="dynamic-item" style="margin-bottom:15px;">
+                        <h4>6. Allocated Budget (Dropdown)</h4>
+                        <div class="form-group"><label>Label</label><input type="text" id="h-onb-f-budget-label"></div>
+                        <div class="form-group"><label>Placeholder</label><input type="text" id="h-onb-f-budget-placeholder"></div>
+                        <div class="form-group"><label>Options (Comma-separated)</label><textarea id="h-onb-f-budget-options" rows="3"></textarea></div>
+                    </div>
+                    
+                    <div class="dynamic-item" style="margin-bottom:15px;">
+                        <h4>7. Location</h4>
+                        <div class="form-group"><label>Label</label><input type="text" id="h-onb-f-loc-label"></div>
+                        <div class="form-group"><label>Placeholder</label><input type="text" id="h-onb-f-loc-placeholder"></div>
+                    </div>
+                    
+                    <div class="dynamic-item" style="margin-bottom:15px;">
+                        <h4>8. Details (Textarea)</h4>
+                        <div class="form-group"><label>Label</label><input type="text" id="h-onb-f-det-label"></div>
+                        <div class="form-group"><label>Placeholder</label><textarea id="h-onb-f-det-placeholder" rows="3"></textarea></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Tab -->
+            <section id="tab-about" class="tab-content">
+                <div class="form-column">
+                    <div class="section-header">
+                        <h2>About Page</h2>
+                        <p>Manage your personal info, bio, and social links.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Top Badge</label>
+                        <input type="text" id="a-badge">
+                    </div>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" id="a-name">
+                    </div>
+                    <div class="form-group">
+                        <label>Typewriter Words (Comma separated)</label>
+                        <input type="text" id="a-typewriterWords">
+                    </div>
+                    <div class="form-group">
+                        <label>Bio (HTML allowed)</label>
+                        <textarea id="a-bio" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Profile Image URL</label>
+                        <input type="text" id="a-profileImage">
+                    </div>
+
+                    <h3>About Stats</h3>
+                    <div id="about-stats-list" class="dynamic-list"></div>
+                    <button class="btn btn-outline btn-sm" onclick="Admin.addArrayItem('aboutStat')">+ Add Stat</button>
+
+                    <h3 style="margin-top:30px;">About Social Icons</h3>
+                    <div id="about-socials-list" class="dynamic-list"></div>
+                    <button class="btn btn-outline btn-sm" onclick="Admin.addArrayItem('aboutSocial')">+ Add Social Icon</button>
+
+                    <h3 style="margin-top:30px;">About FAQ</h3>
+                    <div id="about-faq-list" class="dynamic-list"></div>
+                    <button class="btn btn-outline btn-sm" onclick="Admin.addArrayItem('aboutFaq')">+ Add FAQ</button>
+                </div>
+            </section>
+
+            <!-- Folders Tab -->
+            <section id="tab-folders" class="tab-content">
+                <div class="form-column">
+                    <div class="section-header">
+                        <h2>Folders & Gallery</h2>
+                        <p>Manage your archive folders and header settings.</p>
+                    </div>
+                    <h3>Work Archive Header</h3>
+                    <div class="form-group">
+                        <label>Breadcrumb Label</label>
+                        <input type="text" id="w-breadcrumb">
+                    </div>
+                    <div class="form-group">
+                        <label>Title Line 1</label>
+                        <input type="text" id="w-titleLine1">
+                    </div>
+                    <div class="form-group">
+                        <label>Title Italic</label>
+                        <input type="text" id="w-titleItalic">
+                    </div>
+                    <div class="form-group">
+                        <label>Title Line 2</label>
+                        <input type="text" id="w-titleLine2">
+                    </div>
+
+                    <h3 style="margin-top: 30px;">Archive Folders</h3>
+                    <div id="folders-list" class="folders-list"></div>
+                    <button class="btn btn-primary" onclick="Admin.addFolder()" style="margin-top: 20px;"><i class="fa-solid fa-folder-plus"></i> Create New Folder</button>
+
+                    <h3 style="margin-top: 40px;"><i class="fa-solid fa-rectangle-ad" style="color:#ff003c;"></i> Gallery Area Ad & Sponsor Settings</h3>
+                    <p style="color:#888; font-size:0.85rem; margin-bottom:15px;">Configure ads displayed in the gallery area (top banner or in-feed sponsor card).</p>
+                    <div class="form-group" style="display:flex; align-items:center; gap:10px;">
+                        <input type="checkbox" id="ad-gallery-enabled" style="width:20px; height:20px; accent-color:#ff003c; cursor:pointer;">
+                        <label for="ad-gallery-enabled" style="margin:0; cursor:pointer; color:#fff;">Enable Top Ad Banner in Gallery</label>
+                    </div>
+                    <div class="form-group">
+                        <label>Ad Badge Label</label>
+                        <input type="text" id="ad-gallery-badge" placeholder="SPONSORED or ADVERTISEMENT">
+                    </div>
+                    <div class="form-group">
+                        <label>Ad Title / Sponsor Name</label>
+                        <input type="text" id="ad-gallery-title" placeholder="e.g. EXCLUSIVE CREATOR DEAL">
+                    </div>
+                    <div class="form-group">
+                        <label>Ad Description / Subtitle</label>
+                        <input type="text" id="ad-gallery-desc" placeholder="Special promotion or sponsor offer description...">
+                    </div>
+                    <div class="form-group">
+                        <label>Ad Banner Image URL</label>
+                        <input type="text" id="ad-gallery-image" placeholder="https://images.unsplash.com/photo-...">
+                    </div>
+                    <div class="form-group">
+                        <label>Ad Destination Link URL</label>
+                        <input type="text" id="ad-gallery-link" placeholder="https://sponsor.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Ad CTA Button Text</label>
+                        <input type="text" id="ad-gallery-cta" placeholder="CLAIM DEAL">
+                    </div>
+                    <div class="form-group">
+                        <label>Custom Ad HTML / Script Code (Optional: Google AdSense / Network Code)</label>
+                        <textarea id="ad-gallery-customHtml" rows="3" placeholder="Paste custom script or HTML snippet here if using an external ad network..."></textarea>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Media Library Tab -->
+            <section id="tab-media-library" class="tab-content">
+                <div class="form-column">
+                    <div class="section-header">
+                        <h2>Global Media Library</h2>
+                        <p>Upload and manage all your images and videos.</p>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <input type="file" id="tab-media-upload-input" accept="image/*,video/*" style="display:none">
+                        <button class="btn btn-primary" onclick="document.getElementById('tab-media-upload-input').click()"><i class="fa-solid fa-cloud-arrow-up"></i> Upload New Media</button>
+                    </div>
+                    <div id="tab-media-library-grid" class="media-library-grid">
+                        <!-- Media items populate here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Submissions Tab -->
+            <section id="tab-submissions" class="tab-content">
+                <div class="form-column">
+                    <div class="section-header">
+                        <h2>Form Submissions</h2>
+                        <p>Inquiries logged from the Onboarding Contact Form.</p>
+                    </div>
+                    <div style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+                        <button class="btn btn-outline btn-sm" onclick="Admin.renderSubmissions()"><i class="fa-solid fa-rotate"></i> Refresh Inquiries</button>
+                        <button class="btn btn-danger btn-sm" onclick="Admin.clearSubmissions()"><i class="fa-solid fa-trash"></i> Clear All</button>
+                    </div>
+                    <div id="submissions-list" class="dynamic-list">
+                        <!-- Inquiries populate here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Live Preview Iframe Column -->
+        <aside class="preview-column">
+            <div class="preview-title">
+                <i class="fa-solid fa-desktop"></i> Live Preview
+            </div>
+            <iframe id="global-preview-iframe" class="live-iframe" src="../index.html"></iframe>
+            <div id="media-player-container" style="display:none; flex-grow:1; align-items:center; justify-content:center; padding: 20px; background:#000;">
+                <p style="color:#666;">Select media to preview</p>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Edit Folder / Media Manager Modal -->
+    <div id="modal-edit-folder" class="modal">
+        <div class="modal-content modal-large">
+            <h3 id="modal-folder-title">Edit Folder</h3>
+            
+            <div class="modal-body-scroll">
+                <div class="form-group">
+                    <label>Folder ID (lowercase, no spaces)</label>
+                    <input type="text" id="f-id">
+                </div>
+                <div class="form-group">
+                    <label>Folder Name</label>
+                    <input type="text" id="f-name">
+                </div>
+                <div class="form-group">
+                    <label>Folder Tag (e.g., 10_NODES)</label>
+                    <input type="text" id="f-tag">
+                </div>
+                <div class="form-group">
+                    <label>Filepath (e.g., ~/RE_RENDER/...)</label>
+                    <input type="text" id="f-filepath">
+                </div>
+                <div class="form-group">
+                    <label>Folder Cover Preview Image URL</label>
+                    <div style="display:flex; gap:10px;">
+                        <input type="text" id="f-preview" style="flex:1;" placeholder="https://... (or click Auto Pick)">
+                        <button type="button" class="btn btn-outline btn-sm" onclick="Admin.autoPickFolderCover()" title="Auto pick cover image from the items/videos in this folder"><i class="fa-solid fa-wand-magic-sparkles"></i> Auto Pick Cover</button>
+                    </div>
+                </div>
+                
+                <hr style="border-color:#333; margin: 30px 0;">
+                
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px; flex-wrap:wrap; gap:10px;">
+                    <div>
+                        <h4 style="margin:0;">Gallery Items (Media Manager)</h4>
+                        <p style="margin:4px 0 0; font-size:0.8rem; color:#888;">Add or edit images, videos, and ads in this folder.</p>
+                    </div>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                        <button type="button" class="btn btn-primary btn-sm" onclick="Admin.addNewBlankGalleryItem()"><i class="fa-solid fa-plus"></i> Add New Item</button>
+                        <button type="button" class="btn btn-outline btn-sm" onclick="Admin.openMediaManager()"><i class="fa-solid fa-images"></i> Media Library</button>
+                        <button type="button" class="btn btn-outline btn-sm" onclick="Admin.autoGenerateAllPostersForFolder()" title="Generate/fetch poster images for all video items"><i class="fa-solid fa-film"></i> Auto Pick All Posters</button>
+                    </div>
+                </div>
+                
+                <div id="folder-items-list" class="items-list">
+                    <!-- Items populated here -->
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn btn-outline close-modal">Cancel</button>
+                <button class="btn btn-primary" id="btn-save-folder">Save Folder</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Icon Picker Modal -->
+    <div id="modal-icon-picker" class="modal">
+        <div class="modal-content">
+            <h3>Select an Icon</h3>
+            <div class="form-group" style="padding: 20px 20px 0;">
+                <input type="text" id="icon-search" placeholder="Search icons (e.g., instagram)...">
+            </div>
+            <div id="icon-grid" class="icon-grid"></div>
+            <div class="modal-actions">
+                <button class="btn btn-outline close-icon-modal">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Media Manager Modal -->
+    <div id="modal-media-manager" class="modal">
+        <div class="modal-content modal-large">
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #333; padding-bottom:15px; margin-bottom:20px;">
+                <h3 style="margin:0;">Global Media Library</h3>
+                <div>
+                    <input type="file" id="media-upload-input" accept="image/*,video/*" style="display:none">
+                    <button class="btn btn-primary" onclick="document.getElementById('media-upload-input').click()"><i class="fa-solid fa-cloud-arrow-up"></i> Upload Media</button>
+                    <button class="btn btn-outline close-media-modal">Close</button>
+                </div>
+            </div>
+            
+            <p style="font-size:0.9rem; color:#888; margin-bottom:20px;">Select an asset below to add it to the folder, or upload a new one. Assets uploaded here are saved globally and can be reused.</p>
+            
+            <div id="media-library-grid" class="media-library-grid">
+                <!-- Media items populate here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast Container -->
+    <div id="admin-toast-container" class="admin-toast-container"></div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
